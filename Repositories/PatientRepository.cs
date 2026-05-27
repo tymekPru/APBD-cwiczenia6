@@ -38,6 +38,10 @@ namespace APBD_cwiczenia6.Repositories
                 .OrderByDescending(p => p.Pesel)
                 .ToListAsync();
         }
+        public Task<Patient?> GetPatientByPeselAsync(string pesel)
+        {
+            return _context.Patients.FirstOrDefaultAsync(x => x.Pesel == pesel);
+        }
 
     }
 }
